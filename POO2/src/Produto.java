@@ -1,48 +1,65 @@
+import java.util.Set;
+
 public class Produto {
     private String nome;
     private double preco;
-    private int quantidade;
+    private int percentualDesconto;
 
-    public Produto(String nome, double preco, int quantidade) {
-        this.nome = nome;
+    public Produto(String nome, double preco, int percentualDesconto) {
+        setNome(nome);
         this.preco = preco;
-        this.quantidade = quantidade;
+        setPercentualDesconto(percentualDesconto);
     }
 
     public String getNome() {
         return nome;
     }
 
-    public double getPreco() {
-        return preco;
-    }
-
-    public int getQuantidade() {
-        return quantidade;
-    }
-
-    public void adicionarEstoque(double valor){
-        if (valor > 0) {
-            this.quantidade += valor;
-            System.out.println("Adição de estoque realizada.");
-        } else {
-            System.out.println("Valor inválido!");
-        }
-    }
-
-    public void removerEstoque(double valor){
-        if (quantidade <= 0) {
-           System.out.println("Valor inválido!");
-        } else if (valor > this.quantidade) {
-            System.out.println("Estoque insuficiente!");
+    
+    public void setNome(String nome) {
+        if (nome == null) {
+            System.out.println("Dado inválido.");
         } else{
-             this.quantidade -= valor;
-             System.out.println("Remoção de estoque realizada.");
+        this.nome = nome.trim();
         }
     }
 
-    public double calcularValorEstoque(){
-        return preco * quantidade;
+    public void setPreco(double preco) {
+        if (preco > 0 ) {
+           this.preco = preco;  
+        } else {
+            System.out.println("Valor inválido.");
+        }
     }
 
+    public void setPercentualDesconto(int percentualDesconto) {
+        if (percentualDesconto >= 0 && percentualDesconto <= 50) {
+            this.percentualDesconto = percentualDesconto;
+        } else {
+            System.out.println("Valor inválido.");
+        }
+         
+    }
+        public int getPercentualDesconto() {
+            return percentualDesconto;
+        }
+
+        public double getPreco() {
+            return preco;
+        }
+
+    public double getPrecoFinal(){
+    this.preco = (this.preco - this.preco * this.percentualDesconto /100);
+    return this.preco;
+    }
+
+    public void isEmPromocao(){
+        if (this.percentualDesconto > 0) {
+            System.out.println("Produto está em promoção de "+this.percentualDesconto+"%");
+        } else {
+            System.out.println("Produto não está na promoção");
+        }
+    }
+    
+    
 }

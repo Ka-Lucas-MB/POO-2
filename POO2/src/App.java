@@ -1,6 +1,32 @@
 public class App {
     public static void main(String[] args) throws Exception {
 
+        Reserva reserva = new Reserva("Chris Redfield", 5, "pix");
+
+        System.out.println(reserva.getDescricao());
+        reserva.setFormaPagamento("Cheque");
+       reserva.setFormaPagamento("Cartao");
+       reserva.setQuantidadeIngressos(7);
+       reserva.setQuantidadeIngressos(6);
+       System.out.println(reserva.getDescricao());
+
+
+
+
+
+
+
+     /*   Produto produto = new Produto("GTA VI", 500, 0);
+
+        System.out.println("Valor original: R$"+produto.getPreco());
+        produto.setPreco(550);
+        System.out.println("Novo valor: R$"+produto.getPreco());
+        produto.isEmPromocao();
+        produto.setPercentualDesconto(15);
+        produto.isEmPromocao();
+        System.out.println("Valor com desconto: R$"+produto.getPrecoFinal());
+
+
 
         Pedido pedido = new Pedido(002, 500);
 
@@ -11,7 +37,7 @@ public class App {
         System.out.println(pedido.getResumo());
 
      
-         /*  Funcionario funcionario = new Funcionario("Grace Ashcroft", "DEV", 1800);
+           Funcionario funcionario = new Funcionario("Grace Ashcroft", "DEV", 1800);
 
         System.out.println("--------------------------");
         funcionario.alterarCargo("desenvolvedor");
